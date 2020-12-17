@@ -14,12 +14,15 @@ The three proposed models are direcly available here:
 
 ## Installation and Dependencies
 
-[Pytorch 1.5](https://pytorch.org/get-started/locally)  
+[Pytorch 1.5](https://pytorch.org/get-started/locally)
 
 [MNE](https://mne.tools/stable/install/mne_python.html#install-python-and-mne-python)
 
 [Cuda 10.1](https://developer.nvidia.com/cuda-toolkit)
 
+Installation with pip: `pip install -r requirements.txt`
+
+Import of the environment with conda: `conda env create -f Pytorch_EEG.yml`
 ## Remarks
 
 Due to the EULA for each dataset, some example signals have been proposed to test the models, however, **they are not corresponding to signals from one of tested dataset**.
