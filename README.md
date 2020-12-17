@@ -8,9 +8,9 @@ Set of models for emotion estimation from EEG. Composed by the combination of tw
 
 The three proposed models are direcly available here:
 
-* Saliency based combination of the hierarchical RNN and CNN. [Sal_Model](Sal_Model.py)
-* Feature fusion of the hierarchical RNN and CNN. [Feat_Model.py](Feat_Model.py)
-* Ouput fusion of the hierarchical RNN and CNN. [Loss_Model.py](Loss_Model.py)
+* Saliency based combination of the hierarchical RNN and CNN. [Sal_Model.py](Sal_Model.py)
+* Feature fusion of the hierarchical RNN and CNN. [Feat_Model.py](Feat_Model.py
+)[Sal_Model](Sal_Model.py)* Ouput fusion of the hierarchical RNN and CNN. [Loss_Model.py](Loss_Model.py)
 
 ## Installation and Dependencies
 
