@@ -23,6 +23,7 @@ The three proposed models are direcly available here:
 Installation with pip: `pip install -r req.txt`
 
 Import of the environment with conda: `conda env create -f env.yml`
+
 ## Remarks
 
 Due to the EULA for each dataset, some example signals have been proposed to test the models, however, **they are not corresponding to signals from one of tested dataset**.
@@ -30,3 +31,12 @@ Due to the EULA for each dataset, some example signals have been proposed to tes
 If you are interested in our work, don't hesitate to contact us. 
 
 Best! :smile: 
+
+ps: if you use this repo in other research project, please cite the original paper:
+
+@article{delvigne2022emotion,
+	title={Emotion Estimation from EEG--A Dual Deep Learning Approach Combined with Saliency},
+	author={Delvigne, Victor and Facchini, Antoine and Wannous, Hazem and Dutoit, Thierry and Ris, Laurence and Vandeborre, Jean-Philippe},
+	journal={arXiv preprint arXiv:2201.03891},
+	year={2022}
+}
