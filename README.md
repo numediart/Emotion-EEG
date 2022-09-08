@@ -34,9 +34,9 @@ Best! :smile:
 
 ps: if you use this repo in other research project, please cite the original paper:
 
-@article{delvigne2022emotion,
+	@article{delvigne2022emotion,
 	title={Emotion Estimation from EEG--A Dual Deep Learning Approach Combined with Saliency},
 	author={Delvigne, Victor and Facchini, Antoine and Wannous, Hazem and Dutoit, Thierry and Ris, Laurence and Vandeborre, Jean-Philippe},
 	journal={arXiv preprint arXiv:2201.03891},
 	year={2022}
-}
+	}
