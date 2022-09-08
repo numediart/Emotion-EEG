@@ -27,10 +27,10 @@ warnings.simplefilter("ignore")
 t = time.time()
 device = torch.device('cuda:0')
 
-X_images = np.load('.npy') # place here the images representation of EEG
-X_array = np.load('.npy') # place here the array representation of EEG features
-Label = np.load('.npy') # place here the label for each EEG
-Participant = np.load('.npy') # place here the array with each participants
+X_image = np.load('Example_Input/img.npy') # place here the images representation of EEG
+X_array = np.load('Example_Input/array.npy') # place here the array representation of EEG features
+Label = np.load('Example_Input/label.npy') # place here the label for each EEG
+Participant = np.load('Example_Input/participant.npy') # place here the array with each participants
 
 n_epoch = 150
 
@@ -38,7 +38,7 @@ Dataset = CombDataset(label=Label, image=X_image, array=X_array) #creation of
 #dataset classs in Pytorch
 
 # electrodes locations in 3D -> 2D projection
-locs_3d = np.load('.npy')
+locs_3d = np.load('Electroloc/Neuro_loc_SEED_IV.npy')[:31]
 locs_2d = []
 for e in locs_3d:
     locs_2d.append(azim_proj(e))

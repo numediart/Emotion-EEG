@@ -74,7 +74,7 @@ class FreqCNN(nn.Module):
         super(FreqCNN, self).__init__()
 
         self.ClassifierCNN = nn.Sequential(
-            nn.Conv2d(5, 32, kernel_size=3, padding=(1, 1)),
+            nn.Conv2d(input_image.shape[1], 32, kernel_size=3, padding=(1, 1)),
             nn.BatchNorm2d(32),
             nn.ReLU(),
 
@@ -155,7 +155,7 @@ class NotSquare(nn.Module):
 
         self.ClassifierCNN = nn.Sequential(
             nn.BatchNorm2d(5),
-            nn.Conv2d(5, 32, kernel_size=3, padding=(0,1)),
+            nn.Conv2d(input_image.shape[1], 32, kernel_size=3, padding=(0,1)),
             nn.ReLU(),
 
             nn.MaxPool2d(kernel_size=2),
@@ -490,7 +490,7 @@ class RegionRNN(nn.Module):
 
         self.hidden_size = h_size
         self.num_layers = n_layer
-        self.input_size = 5
+        self.input_size = in_size
 
         self.dict = {'Fr1': np.array([0, 3, 8, 7, 6, 5]), 'Fr2': np.array([ 2,  4, 10, 11, 12, 13]), 'Tp1': np.array([14, 23, 32, 41, 50]),
         'Tp2': np.array([22, 31, 40, 49, 56]), 'Cn1': np.array([15, 16, 17, 26, 25, 24, 33, 34, 35]), 'Cn2': np.array([21, 20, 19, 28, 29, 30, 39, 38, 37]),
@@ -539,14 +539,14 @@ class RegionRNN(nn.Module):
             nn.ReLU(),
             )
 
-        self.b_n1 = nn.BatchNorm2d(5)
+        self.b_n1 = nn.BatchNorm2d(self.input_size)
         self.b_n2 = nn.BatchNorm1d(64)
 
     def forward(self, x):
         # Set initial states
         self.batch_size = x.shape[0]
 
-        x = self.b_n1(x.permute(0,2,1).view(x.shape[0], 5, 1, -1 ))[:,:,0].permute(0,2,1)
+        x = self.b_n1(x.permute(0,2,1).view(x.shape[0], self.input_size, 1, -1 ))[:,:,0].permute(0,2,1)
 
         h0 = torch.zeros(self.num_layers, self.batch_size, self.hidden_size).to(device)
 
@@ -604,14 +604,14 @@ class RegionRNN(nn.Module):
 
 class MultiModel(nn.Module):
 
-    def __init__(self):
+    def __init__(self, input_image=torch.zeros(1, 3, 32, 32)):
         super(MultiModel, self).__init__()
 
         self.FeatRNN = nn.Sequential(
-            RegionRNN(32, 1, 5),
+            RegionRNN(32, 1, input_image.shape[1]),
             )
 
-        self.FeatCNN = FreqCNN()
+        self.FeatCNN = FreqCNN(input_image)
 
         #self.b_n = nn.BatchNorm1d(128)
 

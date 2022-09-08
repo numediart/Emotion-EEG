@@ -219,7 +219,7 @@ def set_requires_grad(model, requires_grad=True):
 def iter_over(train_loader, test_loader):
     iter_test_loader = iter(test_loader)
 
-    for i, data_train in enumerate(Trainloader, 0):
+    for i, data_train in enumerate(train_loader, 0):
         try:
             data_test = next(iter_test_loader)
         except StopIteration:
